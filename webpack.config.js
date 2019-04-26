@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
     mode: "development",
@@ -8,7 +9,9 @@ module.exports = {
     devServer: {
         contentBase: './dist',
         port: 8088,
-        open: true
+        open: true,
+        hot: true,
+        hotOnly: true
     },
     context: path.resolve(__dirname),
     entry: {
@@ -60,6 +63,11 @@ module.exports = {
                         outputPath: 'styles/font/'
                     }
                 }
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
             }
         ]
     },
@@ -67,10 +75,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ],
     output: {
-        publicPath: './',
         filename: "[name].js",
         path: path.resolve(__dirname, './dist')
     }
