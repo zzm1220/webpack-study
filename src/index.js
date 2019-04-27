@@ -1,18 +1,4 @@
-import React, { Component } from "react";
-import ReactDom from "react-dom";
+import { add } from './utils/math';
 
-
-class App extends Component {
-    render() {
-        return (
-            <div>
-                hello react
-            </div>
-        )
-    }
-}
-
-ReactDom.render(
-    <App />, 
-    document.getElementById("root")
-);
+const addVal = add(1, 2);
+console.log(addVal);
