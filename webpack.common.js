@@ -1,18 +1,8 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const webpack = require("webpack");
 
 module.exports = {
-    mode: "development",
-    devtool: "cheap-module-eval-source-map",
-    devServer: {
-        contentBase: './dist',
-        port: 8088,
-        open: true,
-        hot: true,
-        hotOnly: true
-    },
     context: path.resolve(__dirname),
     entry: {
         "main": "./src/index.js"
@@ -75,12 +65,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html'
         }),
-        new CleanWebpackPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new CleanWebpackPlugin()
     ],
-    optimization: {
-        usedExports: true 
-    },
     output: {
         filename: "[name].js",
         path: path.resolve(__dirname, './dist')

@@ -1,4 +1,4 @@
 import { add } from './utils/math';
 
-const addVal = add(1, 2);
+const addVal = add(4, 2);
 console.log(addVal);
