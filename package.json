@@ -6,13 +6,14 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.prod.js",
-    "bundle": "webpack",
+    "bundle": "webpack --config ./webpack.dev.js",
     "watch": "webpack --watch"
   },
   "author": "zhimin",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.4.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.5.1",
@@ -36,6 +37,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.3",
     "core-js": "^3.0.1",
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
