@@ -70,9 +70,25 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: 'all',
+            minSize: 30,
+            maxSize: 0,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '.',
+            name: true,
             cacheGroups: {
-                vendors: false,
-                default: false
+                vendors: {
+                  test: /[\\/]node_modules[\\/]/,
+                  priority: -10,
+                //   filename: "[name].bundle.js"
+                },
+                default: {
+                  minChunks: 1,
+                  priority: -20,
+                  reuseExistingChunk: true,
+                //   filename: "[name].bundle.js"
+                }
             }
         }
     },

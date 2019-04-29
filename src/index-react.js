@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import ReactDom from "react-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
+const App = () => {
+  let Page1 = null
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                hello react
-            </div>
-        )
-    }
+  import(/* webpackChunkName: "page1" */ './test').then(comp => {
+    Page1 = comp
+  })
+  return (
+    <div>
+      <div>App</div>
+      <Page1 />
+    </div>
+  )
 }
 
-ReactDom.render(
-    <App />, 
-    document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById('root'))
