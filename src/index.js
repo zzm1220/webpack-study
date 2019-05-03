@@ -1,3 +1,5 @@
+import './styles/style.scss';
+
 // 异步引入
 function getComponent() {
     return import(/* webpackChunkName: "lodash" */ 'lodash').then(({default: _})=>{

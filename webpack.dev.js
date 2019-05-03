@@ -15,8 +15,9 @@ const devConfig = {
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ],
-    optimization: {
-        usedExports: true 
+    output: {
+        filename: "[name].js",
+        chunkFilename: "[name].chunk.js",
     }
 };
 
